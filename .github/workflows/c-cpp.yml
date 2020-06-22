@@ -2,7 +2,7 @@ name: C/C++ CI
 
 on:
   push:
-    branches: [ master ]
+    branches: [ master, conan ]
   pull_request:
     branches: [ master ]
 
@@ -17,3 +17,5 @@ jobs:
       run: mkdir build && cd build && cmake ..
     - name: make
       run: cd build && make
+    - name: conan package
+      run: conan create . oracle2025/cmake_simple_lib
