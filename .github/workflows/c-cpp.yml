@@ -13,9 +13,12 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+    - uses: actions/setup-python@v2
+      with:
+        python-version: '3.x'
     - name: configure
       run: mkdir build && cd build && cmake ..
     - name: make
       run: cd build && make
     - name: conan package
-      run: pip3 install conan && pip3 show -f conan && $HOME/.local/bin/conan create . oracle2025/cmake_simple_lib
+      run: pip install conan && pip show -f conan && $HOME/.local/bin/conan create . oracle2025/cmake_simple_lib
