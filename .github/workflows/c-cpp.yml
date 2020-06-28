@@ -25,4 +25,4 @@ jobs:
     - name: conan deploy
       env:
          BINTRAY_API_KEY: ${{ secrets.BINTRAY_API_KEY }}
-      run: conan remote add cmake_simple_lib https://api.bintray.com/conan/oracle2025/cmake_simple_lib && conan user -p "$BINTRAY_API_KEY" -r cmake_simple_lib oracle2025
+      run: conan remote add cmake_simple_lib https://api.bintray.com/conan/oracle2025/cmake_simple_lib && conan user -p "$BINTRAY_API_KEY" -r cmake_simple_lib oracle2025 && conan upload -r cmake_simple_lib cmake_simple_lib/0.1
