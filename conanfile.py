@@ -10,7 +10,7 @@ class CmakeSimpleLibConan(ConanFile):
     description = "Demo for including a lib with CMake and Conan.io"
     topics = ("conan", "cmake", "example")
     generators = "cmake"
-    exports_sources = "*"
+    exports_sources = "*", "!build/*"
 
     def build(self):
         cmake = CMake(self)
